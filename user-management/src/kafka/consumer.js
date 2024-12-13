@@ -8,6 +8,10 @@ const kafka = new Kafka({
 	clientId: "user-management",
 	brokers: [kafkaBroker],
 	connectionTimeout: 30000,
+	retry: {
+		retries: 10, // Increase retries
+		initialRetryTime: 300, // Initial retry delay in ms
+	},
 });
 
 const consumer = kafka.consumer({ groupId: "user-management-group" });

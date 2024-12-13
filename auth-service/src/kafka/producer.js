@@ -6,6 +6,10 @@ const kafkaBroker = process.env.KAFKA_BROKER || "localhost:9092";
 const kafka = new Kafka({
 	clientId: "auth-service", // Name of your service
 	brokers: [kafkaBroker], // Your Kafka broker(s)
+	retry: {
+		retries: 10, // Increase retries
+		initialRetryTime: 300, // Initial retry delay in ms
+	},
 });
 
 const producer = kafka.producer();
