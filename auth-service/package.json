@@ -20,7 +20,6 @@
     "graphql": "^16.9.0",
     "install": "^0.13.0",
     "jsonwebtoken": "^9.0.2",
-    "kafka-node": "^5.0.0",
     "kafkajs": "^2.2.4",
     "npm": "^10.9.1",
     "otp-generator": "^4.0.1",
