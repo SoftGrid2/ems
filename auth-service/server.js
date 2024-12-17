@@ -3,6 +3,7 @@ const { ApolloServer } = require("apollo-server-express");
 const typeDefs = require("./src/graphql/schema");
 const resolvers = require("./src/graphql/resolvers");
 const dotenv = require("dotenv");
+const cors = require("cors");
 dotenv.config();
 
 const startServer = async () => {
