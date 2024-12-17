@@ -12,8 +12,16 @@ const startServer = async () => {
 		res.json("Hello from server");
 	});
 
+	const corsOptions = {
+		origin: "*",
+		credentials: true,
+	};
+	app.use(cors(corsOptions));
+
 	// Apollo Server setup
 	const server = new ApolloServer({
+		introspection: true,
+		playground: true,
 		typeDefs,
 		resolvers,
 		context: ({ req }) => {
