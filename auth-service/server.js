@@ -34,6 +34,7 @@ const startServer = async () => {
 
 	// Start the server
 	await server.start();
+	app.use(express.json());
 	server.applyMiddleware({ app });
 
 	const getUserIdFromToken = (token) => {
