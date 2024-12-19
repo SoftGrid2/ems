@@ -65,7 +65,7 @@ docker pull viraj179/nlss-user-management-service:latest
 
 ---
 
-## Start the application
+## Step 1: Start the application
 docker-compose up -d
 
 ### Step 2: Verify Running Containers
