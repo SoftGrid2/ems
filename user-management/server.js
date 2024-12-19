@@ -5,6 +5,11 @@ const resolvers = require("./src/graphql/resolvers");
 const authMiddleware = require("./src/middleware/middleware");
 const { startConsumer } = require("./src/kafka/consumer");
 const app = express();
+
+app.get("/", (req, res) => {
+	res.json("Hello from server");
+});
+
 //app.use(authMiddleware);
 
 const processEvent = (event) => {
