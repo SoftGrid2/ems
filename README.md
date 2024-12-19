@@ -37,13 +37,13 @@ Before running the application, ensure you have the following installed:
 ### 3. **Auth Service**
 
 - **Purpose**: Handles user authentication and authorization.
-- **Port**: `4000`
+- **Port**: `9000`
 - **Custom Image**: `viraj179/auth-service:latest`
 
 ### 4. **User Management Service**
 
 - **Purpose**: Manages user profiles and data.
-- **Port**: `4001`
+- **Port**: `9010`
 - **Custom Image**: `viraj179/user-management-service:latest`
 
 ---
