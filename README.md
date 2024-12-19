@@ -38,13 +38,13 @@ Before running the application, ensure you have the following installed:
 
 - **Purpose**: Handles user authentication and authorization.
 - **Port**: `4000`
-- **Custom Image**: `<your-dockerhub-username>/auth-service:latest`
+- **Custom Image**: `viraj179/auth-service:latest`
 
 ### 4. **User Management Service**
 
 - **Purpose**: Manages user profiles and data.
 - **Port**: `4001`
-- **Custom Image**: `<your-dockerhub-username>/user-management-service:latest`
+- **Custom Image**: `viraj179/user-management-service:latest`
 
 ---
 
