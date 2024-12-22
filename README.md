@@ -246,8 +246,14 @@ This guide provides steps to query databases running in Docker containers for bo
   ```
 
 - Exit PostgreSQL:
+
   ```bash
   \q
+  ```
+
+- Exit docker_container:
+  ```bash
+  exit
   ```
 
 ---
