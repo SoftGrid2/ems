@@ -29,6 +29,18 @@ services:
     networks:
       - kafka-network
 
+  postgres-auth-service:
+    image: postgres:latest
+    container_name: postgres-auth-service
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: viraj179
+      POSTGRES_DB: auth-service
+    ports:
+      - "5431:5432"
+    networks:
+      - kafka-network
+
   auth-service:
     build:
       context: ./auth-service
@@ -37,14 +49,27 @@ services:
       - "9000:4000"
     depends_on:
       - kafka
+      - postgres-auth-service
     environment:
       KAFKA_BROKER: kafka:9092
       NODE_ENV: development
-      DB_HOST: ${DB_HOST}
-      DB_PORT: ${DB_PORT}
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_NAME: ${DB_NAME}
+      DB_HOST: postgres-auth-service
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: viraj179
+      DB_NAME: auth-service
+    networks:
+      - kafka-network
+
+  postgres-user-management:
+    image: postgres:latest
+    container_name: postgres-user-management
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: viraj179
+      POSTGRES_DB: user-management
+    ports:
+      - "5433:5432"
     networks:
       - kafka-network
 
@@ -56,10 +81,15 @@ services:
       - "9010:4001"
     depends_on:
       - kafka
+      - postgres-user-management
     environment:
       KAFKA_BROKER: kafka:9092
       NODE_ENV: development
-
+      DB_HOST: postgres-user-management
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: viraj179
+      DB_NAME: user_management
     networks:
       - kafka-network
 
